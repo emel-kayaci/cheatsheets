@@ -77,14 +77,14 @@ Alternative timelines for a project. If merge does not happen changes made in on
 
 Head is the pointer that refers to the current location in the repository. When using command git log this can be seen at the most recent commit. In the example above head tells us that we are at the master branch.
 
-git branch: List of existing branches. * indicates the branch you are currently on.
+`git branch`: List of existing branches. * indicates the branch you are currently on.
 
-git branch <branch-name>: Creates new branch upon the current head but does not switch to this branch (head stays the same). 
+`git branch <branch-name>`: Creates new branch upon the current head but does not switch to this branch (head stays the same). 
 
-git switch <branch-name>: Switch to given branch.
-git switch -c <branch-name>: Creates a new branch and switch to it. (git checkout -b <branch-name> does the same)  
+`git switch <branch-name>`: Switch to given branch.
+`git switch -c <branch-name>`: Creates a new branch and switch to it. (`git checkout -b <branch-name>` does the same)  
 
-git checkout <branch-name>: Historically, this command was used to switch branches. It is still works but unlike switch it has other functionalities.
+`git checkout <branch-name>`: Historically, this command was used to switch branches. It is still works but unlike switch it has other functionalities.
 
 `git branch -m <branch-name>`: You have to be on the branch you want to rename.
 
