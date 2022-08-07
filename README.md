@@ -69,7 +69,36 @@ Create a file called .gitignore in the root of a repo. (you can put it anywhere 
 - folderName/ will ignore an entire directory
 - *.log will ignore files with .log extension
 
+## GIT BRANCH
 
+Alternative timelines for a project. If merge does not happen changes made in one branch do not affect the other branches.
+
+### Head -> master
+
+Head is the pointer that refers to the current location in the repository. When using command git log this can be seen at the most recent commit. In the example above head tells us that we are at the master branch.
+
+git branch: List of existing branches. * indicates the branch you are currently on.
+
+git branch <branch-name>: Creates new branch upon the current head but does not switch to this branch (head stays the same). 
+
+git switch <branch-name>: Switch to given branch.
+git switch -c <branch-name>: Creates a new branch and switch to it. (git checkout -b <branch-name> does the same)  
+
+git checkout <branch-name>: Historically, this command was used to switch branches. It is still works but unlike switch it has other functionalities.
+
+`git branch -m <branch-name>`: You have to be on the branch you want to rename.
+
+**Important fact:** If changes are not commited or stashed all progress would be lost during the branch switching. Files that are not in old branch but created during new branch act different. If these files are not commited then they will follow through new branch.  
+
+### Deleting branches
+
+`git branch -d <branch-name>`: Deletes the branch with given name. 
+
+- Will give an error if you try the delete the branch you are currently on.  (Cannot delete branch <branch-name> checked out at 'path')
+
+- If you switch to a different branch and try to delete the branch you tried before then different error would show up. (The branch <branch-name> is not fully merged)
+
+`git branch -D <branch-name>`: Allow deleting the branch irrespective of its merged status.
 
 
 
