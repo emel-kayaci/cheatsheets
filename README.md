@@ -92,7 +92,7 @@ Head is the pointer that refers to the current location in the repository. When 
 
 ### Deleting branches
 
-`git branch -d <branch-name>`: Deletes the branch with given name. 
+`git branch -d <branch-name>`: Deletes the branch with given name. (commits are stil there only reference is deleted)
 
 - Will give an error if you try the delete the branch you are currently on.  (Cannot delete branch <branch-name> checked out at 'path')
 
