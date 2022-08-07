@@ -37,6 +37,8 @@ rm -rf .git deletes the folder that makes a folder git repository and we can che
 
 Working Directory --git add--> Staging Area --git commit--> Repository
 
+The commits should be atomic. A commit should encompass a single feature, change or fix. It makes it much easier to undo or rollback changes. 
+
 `git commit`: Every checkpoint made in the project. Command to actually commit changes from the staging area.
 `git commit -m "my message"`: -m flag allows us to pass in an inline commit message. If this flag is not written a text editor would launch automatically and will wait for commit message.
 `git commit -a`: Add all changes of tracked files and commit them.
@@ -45,15 +47,27 @@ Working Directory --git add--> Staging Area --git commit--> Repository
 `git add .`: Stage all changes at once.
 `git rm -r --cached .`: Remove all files from staging area. `git rm --cached file1`: Removes only specified file.
 
-`git log`: Log of commits.
+`git log`: Log of commits. (press q to exit log window in terminal later)
+`git log --oneline`: Shorter commit messages.
 
+### Amending Commits
 
+Sometimes wrong commit is made (forgotten files or typo in commit message). Rather than creating new separate commit, redo the previous commit using the `--amend` option. It is only useful to redo the mistake you did one commit ago.
 
+If you forgot files, add forgotten files in staging area before calling command `git command --amend`. If you only want to change the commit message just call the command. 
 
+### Ignoring Files with .gitignore
 
+Ignoring the files and directories in a given repository using a .gitignore file. By making this change git will no longer track the changes made in those files. This is useful for files like:
+- Secrets, API keys, credentials
+- OS files
+- Log files
+- Dependencies & packages
 
-
-
+Create a file called .gitignore in the root of a repo. (you can put it anywhere but root is common practice)
+- .abc will ignore files named .abc
+- folderName/ will ignore an entire directory
+- *.log will ignore files with .log extension
 
 
 
