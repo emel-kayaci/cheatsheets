@@ -23,6 +23,8 @@
 `rm -rf`: Deletes a directory. (r: recursive, f: force)
  
 # GIT COMMANDS
+
+[Official Documentation](https://git-scm.com/docs)
  
 `git status`: Gives information on the current status of a git repository and its contents.
  
