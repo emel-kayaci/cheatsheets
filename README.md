@@ -179,12 +179,39 @@ It is not possible to view a newly created file either inside or outside the sta
 
 `git diff commit1 commit2`: Compare two commits by giving commit hashes. (To view commit hashes use command git log --oneline)
 
+ ## GIT STASHING
+ 
+Save the changes made in working directory or staging area (changes that are not committed yet) and go to a different branch. In different branch you can continue your work, you can create new branches or commits, they do not affect these stashed files.
 
+What happens if we have uncommited changes in one branch and we want to switch to the other branch?
+ 
+There are two scenarios:
 
+1. Changes come to the destination branch. 
+ 
+2. Git won't let to switch if it detects potential conflicts. (Error: Please commit your changes or stash them before you switch branches.)
+ 
+`git stash` or `git stash save`: Saves changes without committing them. You can stash changes and then come back to them later. This command will take all changes (staged and unstaged) and stash them. 
 
-
-
-
+`git stash pop`: Remove the most recently stashed changes in your stash and re-apply (to a different branch or the same one) them to your working copy.
+ 
+ `git stash apply`: Similar to pop, it will apply whatever was stashed away, difference is that this command does not removes anything from the stash. This is useful if you want to apply stashed changes to multiple branches. 
+ 
+ `git stash drop stash@{2}`: Deletes a particular stash. 
+ 
+ `git stash clear`: Clears all stashes.
+ 
+ ### Stashing Multiple Times
+ 
+ Stashes can added onto the stach of stashes. They will be stashed in the order you added them. 
+ 
+ `git stash list`: Viewing what is in stash.
+ 
+ `git stash apply stash@{2}`: With `git stash apply` most recent stash would be applied but we can also specify a particular stash like this.
+ 
+ 
+ 
+ 
 
 
 
