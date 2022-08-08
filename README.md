@@ -133,7 +133,7 @@ Depending on the specific changes, Git may not be able to automatically merge. T
 - The content from the branch you are trying to merge from is displayed **between the ====== and <<<<< symbols.**
 
 1. Open the file or files with merge conflict.
-2. Edit the file or files to remove the conflict. Decide which branch's content you want to keep in each conflict. (or keep the both content)
+2. Edit the file or files to remove the conflict. Decide which branch's content you want to keep in each conflict. (or keep the both content) It is not just and, or operation you can type whatever you want in the file.
 3. Remove the conflict markers in the document.
 4. Add changes and make commit.
 
