@@ -77,7 +77,7 @@ Alternative timelines for a project. If merge does not happen changes made in on
 
 Head is the pointer that refers to the current location in the repository. When using command git log this can be seen at the most recent commit. In the example above head tells us that we are at the master branch.
 
-`git branch`: List of existing branches. * indicates the branch you are currently on.
+`git branch`: List of existing branches. * indicates the branch you are currently on. `git branch -v`: Last commit for every branch. 
 
 `git branch <branch-name>`: Creates new branch upon the current head but does not switch to this branch (head stays the same). 
 
@@ -101,6 +101,41 @@ Head is the pointer that refers to the current location in the repository. When 
 - If you switch to a different branch and try to delete the branch you tried before then different error would show up. (The branch <branch-name> is not fully merged)
 
 `git branch -D <branch-name>`: Allow deleting the branch irrespective of its merged status.
+
+## GIT MERGE
+
+[Git Merge Tutorial](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
+
+- Branches are merged, not specific commits.
+- Always merge to the current head branch.
+- Merging does not mean that the previous branch whose information was added is lost. We can still continue to develop it as it is a separate branch.
+
+Two steps in merge:
+
+1. Switch (or checkout) to the branch you want to merge the changes into. 
+
+2. Use the `git merge` command to merge changes from a specific branch into the current branch. 
+
+### Fast Forward Merge
+
+<img src="https://user-images.githubusercontent.com/43893190/183354974-63b2ac8f-f713-4c19-a32a-c1fd6de52585.jpg" width="380" height="500" />
+
+### Typical Merge
+
+Rather than performing simple fast forward, git makes a new commit on the master branch and will expect a commit message from you. This commit unlike others has two parents. 
+
+### Merge Conflicts
+
+Depending on the specific changes, Git may not be able to automatically merge. This merge conflicts should be manually resolved. Git changes the content of the files to indicate the conflicts that it wants you to resolve. 
+
+- The content came from the Head branch is displayed **between the <<<<<HEAD and ====== symbols.**
+
+- The content from the branch you are trying to merge from is displayed **between the ====== and <<<<< symbols.**
+
+1. Open the file or files with merge conflict.
+2. Edit the file or files to remove the conflict. Decide which branch's content you want to keep in each conflict. (or keep the both content)
+3. Remove the conflict markers in the document.
+4. Add changes and make commit.
 
 
 
