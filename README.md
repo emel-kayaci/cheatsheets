@@ -137,6 +137,33 @@ Depending on the specific changes, Git may not be able to automatically merge. T
 3. Remove the conflict markers in the document.
 4. Add changes and make commit.
 
+## GIT DIFF
+
+- Lists all the changes in working directory that are not staged for the next commit.
+
+- View changes between commits, branches, files, working directories and more. 
+
+- It does not impact the repository just gives info like git log or git status command.
+
+Explanation of the output of git diff:
+
+`diff --git a/diff_test.txt b/diff_test.txt`: Comparison unit (which files are being compared, usually two versions of the same file)
+
+`index 6b0c6cf..b37e70a 100644`: File metadata
+
+`--- a/diff_test.txt`: Legend that assigns symbols to each diff input source. Changes from a/diff_test.txt are marked with a ---.
+
+`+++ b/diff_test.txt`: Changes from b/diff_test.txt are marked with the +++ symbol.
+
+The remaining diff output is a list of diff *chunks*. Not entire content of the file just the modified parts. 
+
+`@@ -1 +1 @@`: Each chunk is prepended by a header inclosed within @@ symbols. The content of the header is a summary of changes made to the file.
+
+For example if this would be like this `@@ -34,6 +34,8 @@` then it would mean that 6 lines have been extracted starting from line number 34. Additionally, 8 lines have been added starting at line number 34.
+
+`-this is a git diff test example`: Line that begins with - come from file A.
+
+`+this is a diff example`: Line that begins with + come from file B.
 
 
 
