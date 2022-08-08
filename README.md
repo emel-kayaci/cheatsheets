@@ -9,6 +9,8 @@
 `open .`: Opens directory as folder.
 `open Desktop`: Opens desktop as folder. (Just an example you can pick whatever destination is needed.) 
 
+`code .`: Opens directory in vs code.
+
 `pwd`: Print Working Directory. Shows current location.
 
 `cd`: Change directory. 
