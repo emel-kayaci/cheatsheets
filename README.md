@@ -165,14 +165,17 @@ For example if this would be like this `@@ -34,6 +34,8 @@` then it would mean th
 
 `+this is a diff example`: Line that begins with + come from file B.
 
+`git diff HEAD`: Lists all changes in the working tree since last commit. (git diff only includes unstaged changes, this also includes staged changes) 
 
+It is not possible to view a newly created file either inside or outside the staging area with the `git diff` command. But if the newly created file is transferred into the staging area, we can see the change that a new file has been created with the `git diff HEAD` or `git diff --staged` command.
 
+`git diff --staged` or `git diff --cached`: List the changes between the staging area and last commit. (shows what will be included in the commit if we run it right now)
 
+`git diff HEAD filename`  or  `git diff --staged filename`: View the changes within a specific file. To view multiple files separate them by spaces.
 
+`git diff branch1 branch2`: List the changes between the tips of branch1 and branch2. 
 
-
-
-
+`git diff commit1 commit2`: Compare two commits by giving commit hashes. (To view commit hashes use command git log --oneline)
 
 
 
