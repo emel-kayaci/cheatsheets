@@ -209,9 +209,17 @@ There are two scenarios:
  
  `git stash apply stash@{2}`: With `git stash apply` most recent stash would be applied but we can also specify a particular stash like this.
  
+ ## UNDOING CHANGES
  
+ `git checkout commit-hash`: View previous commit. (7-digit commit-hash is enough) You can just observe the previous commit or you can go back to that commit and create a new branch from there (head will be automatically re-attached). 
  
+ `git checkout HEAD~1`: We can also reference the previous commit relative to the HEAD. `HEAD~1` refers to the commit before HEAD (parent), `HEAD~2` refers to the 2 commits before HEAD (grandparent)
  
+ When running this command **detached HEAD** warning will be displayed. This means that head is no longer referencing a branch (head --> master --> last commit in master), head now referencing a commit directly (head --> commit that is specified with commit hash). 
+
+ `cat .git/HEAD`: Shows where head is currently referencing. If it references a branch output will be something like refs/heads/master but in the detached head state output will be a commit hash. 
+
+`git switch branch-name`: Re-attaches head. `git switch -`: Re-attaches the head to the last branch we were on. 
 
 
 
