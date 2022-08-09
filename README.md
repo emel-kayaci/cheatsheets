@@ -257,6 +257,13 @@ In remote repositories we have 2 different references. One reference is our refe
 
 `git checkout origin/master`: You can checkout to the remote branch pointer, this way you can view how did repo looked when you cloned it last time. (origin/master is just example it could be origin/main or any other branch)
 
+### When cloning where is other branches?
+
+When repo is cloned all data and Git history will be available on local machine but this does not mean that whole project will be in our workspace. For example if we clone url link of main branch, other branches would not be visible on our machine. We can see remote branches with `git branch -r` command but `git branch` command will only show one record. 
+
+By default master branch is already tracking origin/master.
+To make a connection to other branches we just need to run the command `git switch <remote-branch-name>`. It will create local branch and sets it up to track the remote branch origin/branch.
+
 
 
 
