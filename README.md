@@ -231,17 +231,7 @@ There are two scenarios:
  
  `git reset --hard <commit>`: Similar to previous command but working directory changes too. Changes are also removed from working directory. 
 
-
-
-
-
-
-
-
-
-
-
-
+`git revert <commit-hash>`: Similar to git reset, both of them undo the changes but the way they accomplish it differs. `git reset` moves the branch pointer backwards and treats the commits that came after like they never existted. `git revert` creates a new commit and undos the changes there thus it excepts a commit message. 
 
 
 
