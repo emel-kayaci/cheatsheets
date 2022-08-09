@@ -225,10 +225,11 @@ There are two scenarios:
 
 `git restore --source HEAD~1 file`: By default `git restore <file>` restores using HEAD as the default source. Wİth this command we can change the source and restore files not only from the last commit. (also commit hash can be used for source)
 
+`git restore --staged <file>`: Remove the files that has been added to the staging area and unstage them.
 
-
-
-
+`git reset <commit-hash>`: Resets the repo back to a specific commit. (all the other commits after that are gone) It just removes the commits but the changes are still in the working directory. It is useful when you want to transfer the work to another branch because the work is not lost, just commits are deleted. 
+ 
+ `git reset --hard <commit>`: Similar to previous command but working directory changes too. Changes are also removed from working directory. 
 
 
 
