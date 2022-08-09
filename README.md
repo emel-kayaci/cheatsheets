@@ -264,8 +264,9 @@ When repo is cloned all data and Git history will be available on local machine 
 By default master branch is already tracking origin/master.
 To make a connection to other branches we just need to run the command `git switch <remote-branch-name>`. It will create local branch and sets it up to track the remote branch origin/branch.
 
+### GIT FETCH & GIT PULL
 
-
+<img src="https://user-images.githubusercontent.com/43893190/183743818-54a9dc34-de45-4603-ab9c-53258df82cfb.png" width="600" height="450" />
 
 
 
