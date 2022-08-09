@@ -233,6 +233,27 @@ There are two scenarios:
 
 `git revert <commit-hash>`: Similar to git reset, both of them undo the changes but the way they accomplish it differs. `git reset` moves the branch pointer backwards and treats the commits that came after like they never existted. `git revert` creates a new commit and undos the changes there thus it excepts a commit message. 
 
+## REMOTE REPOSITORIES 
+
+`git clone <url>`: Clone a remote repository hosted on Github or similar websites. 
+
+`git remote`: View any existing remotes for your repository. (`git remote -v` for more info)
+
+`git remote add <name> <url>`: Adding a new remote. Remote is a connection between git and Github. Origin is a conventional git remote name. 
+
+`git remote remove <name>`: Deletes remote.
+
+`git remote rename <old> <new>`: Renames the remote.
+
+`git push <remote> <branch>`: Adding (pushing) some work up to the Github. You don't have to be on the branch you are currently pushing to the github. Use `git push <remote> <local-branch>:<remote-branch>` command if our local branch has a different name than a remote branch. 
+
+`git push -u origin master`: -u allows us to set the upstream of the branch we are pushing. Without this command we need to specify the names of the branches in git push command. We need to run this command only once and branches would be connected. 
+
+
+
+
+
+
 
 
 
