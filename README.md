@@ -221,7 +221,7 @@ There are two scenarios:
 
 `git switch branch-name`: Re-attaches head. `git switch -`: Re-attaches the head to the last branch we were on. 
 
-`git checkout HEAD <file>` or `git checkout -- <file>` or `git restore <file>: Discard changes in a file. Restores the files with the content of the last commit (only the files that are not in the staging area).
+`git checkout HEAD <file>` or `git checkout -- <file>` or `git restore <file>`: Discard changes in a file. Restores the files with the content of the last commit (only the files that are not in the staging area).
 
 `git restore --source HEAD~1 file`: By default `git restore <file>` restores using HEAD as the default source. Wİth this command we can change the source and restore files not only from the last commit. (also commit hash can be used for source)
 
