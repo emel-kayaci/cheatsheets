@@ -249,6 +249,20 @@ There are two scenarios:
 
 `git push -u origin master`: -u allows us to set the upstream of the branch we are pushing. Without this command we need to specify the names of the branches in git push command. We need to run this command only once and branches would be connected. 
 
+### Remote Tracking Branch
+
+In remote repositories we have 2 different references. One reference is our reference in local and the other one is the remote tracking branch. It is a reference to the state of the branch on the remote. It can not move by itself, it is just a last known commit to us on this branch on origin. 
+
+`git branch -r`: View the remote branches our local repo knows about. 
+
+`git checkout origin/master`: You can checkout to the remote branch pointer, this way you can view how did repo looked when you cloned it last time. (origin/master is just example it could be origin/main or any other branch)
+
+
+
+
+
+
+
 
 
 
