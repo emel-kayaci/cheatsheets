@@ -266,16 +266,12 @@ To make a connection to other branches we just need to run the command `git swit
 
 ### GIT FETCH & GIT PULL
 
+`git fetch <remote>`: Download changes from a remote repository but do not integrate them with working files. `git fetch <remote> <branch>` fetch a specific branch from a remote. This command will create a different branch than current one. To view the changes use command `git checkout origin/main`. (origin/main is just an example)
+
+`git pull <remote> <branch> `: Unlike fetch, pull updates our head branch with changes retrieved from the remote. Like git merge it matters where we run this command because we run it where we want to changes be merged into. So this command can result in merge conflict too. 
+
+`git pull`: Shorter syntax. Git assumes that remote is origin and branch is whatever tracking connection is configured for our current branch. 
+
 <img src="https://user-images.githubusercontent.com/43893190/183743818-54a9dc34-de45-4603-ab9c-53258df82cfb.png" width="600" height="450" />
-
-
-
-
-
-
-
-
-
-
 
 
