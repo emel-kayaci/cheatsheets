@@ -229,7 +229,7 @@ There are two scenarios:
 
 `git reset <commit-hash>`: Resets the repo back to a specific commit. (all the other commits after that are gone) It just removes the commits but the changes are still in the working directory. It is useful when you want to transfer the work to another branch because the work is not lost, just commits are deleted. 
  
- `git reset --hard <commit>`: Similar to previous command but working directory changes too. Changes are also removed from working directory. 
+`git reset --hard <commit>`: Similar to previous command but working directory changes too. Changes are also removed from working directory. 
 
 `git revert <commit-hash>`: Similar to git reset, both of them undo the changes but the way they accomplish it differs. `git reset` moves the branch pointer backwards and treats the commits that came after like they never existted. `git revert` creates a new commit and undos the changes there thus it excepts a commit message. 
 
@@ -275,5 +275,21 @@ To make a connection to other branches we just need to run the command `git swit
 `git pull`: Shorter syntax. Git assumes that remote is origin and branch is whatever tracking connection is configured for our current branch. 
 
 <img src="https://user-images.githubusercontent.com/43893190/183743818-54a9dc34-de45-4603-ab9c-53258df82cfb.png" width="600" height="450" />
+
+## GIT REBASE
+
+Two main ways to use the git rebase command:
+
+1. Alternative to merging
+2. Cleanup tool
+
+<img src="https://user-images.githubusercontent.com/43893190/183910115-422f66ee-2a4f-4673-97bd-b92ae4188ca7.png" width="400" height="250" />
+
+When the master branch is very active then feature branch's history will be very complex because if it wants to keep up with master it should merge the master branch's work to itself regularly. We can instead use rebase. When we rebase the feature branch onto the master branch it moves the entire feature's history at the tip of the master branch. 
+
+Instead of commit it rewrites history by creating new commits at the end of the original.
+
+
+
 
 
