@@ -241,6 +241,8 @@ There are two scenarios:
 
 `git remote add <name> <url>`: Adding a new remote. Remote is a connection between git and Github. Origin is a conventional git remote name. 
 
+You can have more than one remote. For example if you forked a project from Github, you will have two different versions of the project. One is your fork and the other one is where you forked this project from. If you want to get the updated version of the project git pull origin command will not be enough because it will only bring the changes from the forked repo. You need to add additional remote (for remote name upstream is recommended).
+
 `git remote remove <name>`: Deletes remote.
 
 `git remote rename <old> <new>`: Renames the remote.
