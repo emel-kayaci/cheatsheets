@@ -332,18 +332,39 @@ Tags are mostly used for different versions of the project. It is important to k
 
 Patch releases do not contain new features, they are typically used for chnages like bug fixes that do not impact how code is used. 
 
-
-
-
-
-
-
-
-
+Minor releases include new features or new functionality. Everything is backward compatible so there is no breaking changes. When there is a minor release you should reset your patch number back to 0.
  
+Major releases signify changes that are no longer backward compatible. With major release both patch number and minor release number should reset to 0. 
  
+ ### Tag commands
+
+`git tag`: List all the tags in current repository. 
  
+`git tag -l "*beta*"`: Search tags that match a particular pattern. (*beta* is just an one example of wildcard patterns)
+
+`git checkout <tag>`: Views the commit with the specified tag. 
  
+`git diff <tag1> <tag2>`: Difference between two commits with specified tags.
+ 
+`git tag <tagname>`: Creates a lightweight tag. Tag will be created wherever HEAD is currently referencing.
+ 
+`git tag -a <tagname>`: Creates an annotated tag. 
+ 
+`git show <tagname>`: More information about the tag. 
+ 
+`git tag <tagname> <commithash>`: Tag not only commit what is HEAD showing. With this command you can tag any commit.
+ 
+`git tag <tagname> <commithash> -f`: Tag names should be unique. If we put a tag in wrong commit, we can move it with this command. 
+ 
+`git tag -d <tagname>`: Deletes a tag. 
+ 
+ ### Pushing tags
+ 
+ By default, the git push command does not transfer the tags to remote servers. 
+ 
+`git push --tags`: Transfers all of the new tags to the remote server.
+ 
+`git push origin <tagname>`: Transfers specified tag. 
  
  
  
