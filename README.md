@@ -9,6 +9,8 @@
 `open .`: Opens directory as folder.
 `open Desktop`: Opens desktop as folder. (Just an example you can pick whatever destination is needed.) 
 
+`cat file.txt`: View the contents of the file in terminal.
+
 `code .`: Opens directory in vs code.
 
 `pwd`: Print Working Directory. Shows current location.
@@ -298,14 +300,18 @@ Instead of commit it rewrites history by creating new commits at the end of the 
 
 **Never rebase the commits that you already shared with someone. Because you are changing history with rebase and commit hashes would be different too.**
 
-
-
-
-
-
-
-
-
-
-
-
+### Interactive rebase
+ 
+Rewrite, delete, rename, reorder commits before sharing them with git rebase. Running git rebase with -i will enter the interactive mode. 
+ 
+`git rebase -i HEAD~4`: We are not rebasing onto another branch. We are rebasing a series of commits onto the HEAD they are currently are. (with HEAD~4 will go to the 4th commit from top) Commit hashes of the all the commits after selected one will change. 
+ 
+After running the command above text editor will open. To alter the commits we need to specify some commands. The list of commonly used commands is shown below. 
+ 
+ - **pick:** Use the commit.
+ - **reword:** Use the commit but edit the commit message.
+ - **edit:** Use commit but stop for amending.
+ - **fixup:** Use commit contents but meld it into previous commit and discard the commit message.
+ - **drop:** Remove commit.
+ 
+ 
