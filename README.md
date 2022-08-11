@@ -278,6 +278,13 @@ To make a connection to other branches we just need to run the command `git swit
 
 ## GIT REBASE
 
+First, switch to the branch you want to rebase and then rebase this branch onto some other branch (in the example above it is the master).
+
+```
+git switch feature
+git rebase master
+```
+
 Two main ways to use the git rebase command:
 
 1. Alternative to merging
@@ -288,6 +295,15 @@ Two main ways to use the git rebase command:
 When the master branch is very active then feature branch's history will be very complex because if it wants to keep up with master it should merge the master branch's work to itself regularly. We can instead use rebase. When we rebase the feature branch onto the master branch it moves the entire feature's history at the tip of the master branch. 
 
 Instead of commit it rewrites history by creating new commits at the end of the original.
+
+**Never rebase the commits that you already shared with someone. Because you are changing history with rebase and commit hashes would be different too.**
+
+
+
+
+
+
+
 
 
 
