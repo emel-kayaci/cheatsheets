@@ -314,4 +314,36 @@ After running the command above text editor will open. To alter the commits we n
  - **fixup:** Use commit contents but meld it into previous commit and discard the commit message.
  - **drop:** Remove commit.
  
+ ## GIT TAGS
+ 
+ ![git_workflow](https://user-images.githubusercontent.com/43893190/184199189-d50f375c-1160-405e-b148-199b97ed8ff9.png)
+ 
+ There are two types of Git tags.
+ 
+ 1. Lightweight tag: Name/label that points to a particular commit.
+ 
+ 2. Annotated tag: Stores extra data such as author's name, email, date and tagging message. 
+ 
+ ### Semantic versioning
+ 
+[Documentation about semantic versioning](https://semver.org/)
+
+Tags are mostly used for different versions of the project. It is important to know what semantic versioning means. For example if we have a release like 1.3.6 digit 1 specifies the **major release**, 3 specifies the **minor release** and 6 specifies the **patch release**.
+
+Patch releases do not contain new features, they are typically used for chnages like bug fixes that do not impact how code is used. 
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
  
