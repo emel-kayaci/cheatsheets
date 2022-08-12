@@ -1,13 +1,13 @@
 # UNIX COMMANDS
 
-`ls`: Shows files in directory. Use tab to autocomplete.
-`ls -l`: Shows files in directory with additional info.
+`ls`: Shows files in the directory. Use tab to autocomplete.
+`ls -l`: Shows files in the directory with additional info.
 `ls -a`: Shows also hidden files.
 
 `clear`: Clears the terminal. (ctrl-l)
 
-`open .`: Opens directory as folder.
-`open Desktop`: Opens desktop as folder. (Just an example you can pick whatever destination is needed.) 
+`open .`: Opens directory as a folder.
+`open Desktop`: Opens desktop as a folder. (Just an example you can pick whatever destination is needed.) 
 
 `cat file.txt`: View the contents of the file in terminal.
 
@@ -18,11 +18,11 @@
 `cd`: Change directory. 
 `cd..`: Go back one level.
 
-`touch`: Create a file or files. (touch text1.txt text2.txt text3.py text4.pdf) To create file in different directory use touch command with path such as touch Desktop/Folder1/text1.txt
+`touch`: Create a file or files. (touch text1.txt text2.txt text3.py text4.pdf) To create a file in a different directory use the touch command with a path such as a touch Desktop/Folder1/text1.txt
 
 `mkdir`: Creates a new directory/folder (or directories)
  
-`rm`: Delete a file or files. (Not to trash bin, permanently removes them)
+`rm`: Delete a file or files. (Not to the trash bin, permanently removes them)
  
 `rm -rf`: Deletes a directory. (r: recursive, f: force)
  
@@ -33,7 +33,7 @@
 `git status`: Gives information on the current status of a git repository and its contents.
  
 `git init`: Create a new git repository. Do once per project and initialize in the top-level folder containing the project.
-rm -rf .git deletes the folder that makes a folder git repository and we can check this with git status command.
+rm -rf .git deletes the folder that makes a folder git repository and we can check this with the git status command.
 
 ## GIT ADD & GIT COMMIT
 
@@ -44,21 +44,21 @@ Working Directory --git add--> Staging Area --git commit--> Repository
 The commits should be atomic. A commit should encompass a single feature, change or fix. It makes it much easier to undo or rollback changes. 
 
 `git commit`: Every checkpoint made in the project. Command to actually commit changes from the staging area.
-`git commit -m "my message"`: -m flag allows us to pass in an inline commit message. If this flag is not written a text editor would launch automatically and will wait for commit message.
-`git commit -a`: Add all changes of tracked files and commit them.
+`git commit -m "my message"`: -m flag allows us to pass in an inline commit message. If this flag is not written a text editor would launch automatically and will wait for the commit message.
+`git commit -a`: Add all changes to tracked files and commit them.
 
-`git add`: Stage changes to be committed. Group specific changes together, in preparation of committing. git add file1 file2
+`git add`: Stage changes to be committed. Group specific changes together, in preparation for committing. git add file1 file2
 `git add .`: Stage all changes at once.
-`git rm -r --cached .`: Remove all files from staging area. `git rm --cached file1`: Removes only specified file.
+`git rm -r --cached .`: Remove all files from staging area. `git rm --cached file1`: Removes only specified files.
 
 `git log`: Log of commits. (press q to exit log window in terminal later)
 `git log --oneline`: Shorter commit messages.
 
 ### Amending Commits
 
-Sometimes wrong commit is made (forgotten files or typo in commit message). Rather than creating new separate commit, redo the previous commit using the `--amend` option. It is only useful to redo the mistake you did one commit ago.
+Sometimes the wrong commit is made (forgotten files or typo in the commit message). Rather than creating a new separate commit, redo the previous commit using the `--amend` option. It is only useful to redo the mistake you did one commit ago.
 
-If you forgot files, add forgotten files in staging area before calling command `git command --amend`. If you only want to change the commit message just call the command. 
+If you forgot files, add forgotten files in a staging area before calling the command `git command --amend`. If you only want to change the commit message just call the command. 
 
 ### Ignoring Files with .gitignore
 
@@ -68,41 +68,41 @@ Ignoring the files and directories in a given repository using a .gitignore file
 - Log files
 - Dependencies & packages
 
-Create a file called .gitignore in the root of a repo. (you can put it anywhere but root is common practice)
+Create a file called .gitignore in the root of a repo. (you can put it anywhere but the root is common practice)
 - .abc will ignore files named .abc
 - folderName/ will ignore an entire directory
 - *.log will ignore files with .log extension
 
 ## GIT BRANCH
 
-Alternative timelines for a project. If merge does not happen changes made in one branch do not affect the other branches.
+Alternative timelines for a project. If a merge does not happen changes made in one branch do not affect the other branches.
 
 ### Head -> master
 
-Head is the pointer that refers to the current location in the repository. When using command git log this can be seen at the most recent commit. In the example above head tells us that we are at the master branch.
+The head is the pointer that refers to the current location in the repository. When using the command git log this can be seen at the most recent commit. The example above head tells us that we are at the master branch.
 
 `git branch`: List of existing branches. * indicates the branch you are currently on. `git branch -v`: Last commit for every branch. 
 
-`git branch <branch-name>`: Creates new branch upon the current head but does not switch to this branch (head stays the same). 
+`git branch <branch-name>`: Creates a new branch upon the current head but does not switch to this branch (head stays the same). 
 
-`git switch <branch-name>`: Switch to given branch.
-`git switch -c <branch-name>`: Creates a new branch and switch to it. (`git checkout -b <branch-name>` does the same)  
+`git switch <branch-name>`: Switch to the given branch.
+`git switch -c <branch-name>`: Creates a new branch and switches to it. (`git checkout -b <branch-name>` does the same)  
 
-`git checkout <branch-name>`: Historically, this command was used to switch branches. It is still works but unlike switch it has other functionalities.
+`git checkout <branch-name>`: Historically, this command was used to switch branches. It still works but unlike switch, it has other functionalities.
 
 `git branch -m <branch-name>`: You have to be on the branch you want to rename.
 
-**Important fact:** If changes are not commited or stashed all progress would be lost during the branch switching. Files that are not in old branch but created during new branch act different. If these files are not commited then they will follow through new branch.  
+**Important fact:** If changes are not committed or stashed all progress would be lost during the branch switching. Files that are not in the old branch but created during the new branch act differently. If these files are not committed then they will follow through new branch.  
 
 ### Deleting branches
 
 [Delete branches](https://www.cloudbees.com/blog/git-delete-branch-how-to-for-both-local-and-remote)
 
-`git branch -d <branch-name>`: Deletes the branch with given name. (commits are stil there only reference is deleted)
+`git branch -d <branch-name>`: Deletes the branch with the given name. (commits are still there only reference is deleted)
 
 - Will give an error if you try the delete the branch you are currently on.  (Cannot delete branch <branch-name> checked out at 'path')
 
-- If you switch to a different branch and try to delete the branch you tried before then different error would show up. (The branch <branch-name> is not fully merged)
+- If you switch to a different branch and try to delete the branch you tried before then a different error would show up. (The branch <branch-name> is not fully merged)
 
 `git branch -D <branch-name>`: Allow deleting the branch irrespective of its merged status.
 
@@ -112,7 +112,7 @@ Head is the pointer that refers to the current location in the repository. When 
 
 - Branches are merged, not specific commits.
 - Always merge to the current head branch.
-- Merging does not mean that the previous branch whose information was added is lost. We can still continue to develop it as it is a separate branch.
+- Merging does not mean that the previous branch whose information was added is lost. We can continue to develop it as it is a separate branch.
 
 Two steps in merge:
 
