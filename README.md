@@ -366,5 +366,20 @@ Major releases signify changes that are no longer backward compatible. With majo
  
 `git push origin <tagname>`: Transfers specified tag. 
  
+ ## GIT REFLOGS
  
+ Reflogs are only local, they are not shared with collaborators. Also they are expire (around 90 days).
  
+ Git also keeps track of references history. For example HEAD was pointing to the commit B, then HEAD was pointing to    commit C and in C reference was switch from branch feature to main. Briefly, git stores all the places HEAD reference was. 
+ 
+ To view this reflog file go to the .git folder. There is a directory named logs. 
+ 
+ `git reflog show HEAD`: Will show the log of a specified reference. (by default HEAD) To view main branch instead of HEAD search for main. 
+ 
+ `name@{qualifier}`: Access specific git ref. For example `git checkout HEAD@{2}`, it is different than HEAD~2. In ~2 notation we are referencing where HEAD was 2 commits ago but in @{2} notation there can be thing other than commits like switching branches, some rebasing even detached head warnings.
+ 
+ `git diff HEAD HEAD@{yesterday}`: We can also use time to view changes. 
+ 
+ `git reflog show HEAD@{3.days.ago}`: Shows all the changes in the HEAD reference starting from 3 days ago. 
+
+With reflogs we can access commits that are seem lost and not appearing in git log. If we used git reset --hard the commit we deleted are no longer in git log. To get the commit information back we can use git reflog to get commit hash. To get the commit back use `git reset --hard master@{1}` command. master@{1} just a reference to that commit in git reflog.
