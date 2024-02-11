@@ -125,3 +125,28 @@ void test(String input) {...}
       </td>
    </tr>
 </table>
+
+### Testing Exceptions
+
+```java
+  @Test
+        void should_ThrowArithmeticException_When_Param2Zero() {
+
+            // given
+            double param1 = 50.0;
+            double param2 = 0.0;
+
+            // when
+            Executable executable = () -> SampleClass.sampleMethod(param1, param2);
+
+            // then
+            assertThrows(ArithmeticException.class, executable);
+
+        }
+```
+
+### Clean Test Tips
+
+- Instead of wrapping everything in comments use the `@Disabled` annotation. When applied at the class level, all test methods within that class are automatically disabled as well.
+- To reduce complexity when the test class grows use `@Nested`. It groups multiple test methods inside multiple nested classes of a main(outer) test class. Each nested class can have its own `@BeforeEach` and `@AfterEach`.
+- `@DisplayName` could be used at the class and method level. The key benefit is that it can provide information about the test methods that show up in reporting and can be easily understood by any non-technical user.
