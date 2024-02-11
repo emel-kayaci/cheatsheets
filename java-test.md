@@ -147,6 +147,60 @@ void test(String input) {...}
 
 ### Clean Test Tips
 
-- Instead of wrapping everything in comments use the `@Disabled` annotation. When applied at the class level, all test methods within that class are automatically disabled as well.
+#### Disabled 
+Instead of wrapping everything in comments use the `@Disabled` annotation. When applied at the class level, all test methods within that class are automatically disabled as well.
+
+#### Nested 
 - To reduce complexity when the test class grows use `@Nested`. It groups multiple test methods inside multiple nested classes of a main(outer) test class. Each nested class can have its own `@BeforeEach` and `@AfterEach`.
+
+#### DisplayName 
 - `@DisplayName` could be used at the class and method level. The key benefit is that it can provide information about the test methods that show up in reporting and can be easily understood by any non-technical user.
+
+#### AssertAll 
+- Use `@AssertAll` when checking multiple assertions. In code with multiple assertions, the test stops when the first of these assertions fails.
+
+Without `@AssertAll`:
+
+```java
+@Test
+void should_ReturnObjectWithWorstMetric_When_ObjectListNotEmptyWithoutAssertAll() {
+    // given
+    List<SomeObject> objects = new ArrayList<>();
+    objects.add(new SomeObject(1.80, 60.0));
+    objects.add(new SomeObject(1.82, 98.0));
+    objects.add(new SomeObject(1.82, 64.7));
+
+    // when
+    Optional<SomeObject> objectWithWorstMetric = MetricCalculator.findObjectWithWorstMetric(objects);
+
+    // then
+    assertTrue(objectWithWorstMetric.isPresent());
+    assertEquals(1.82, objectWithWorstMetric.get().getHeight()); // TEST FAILS HERE AND DO NOT EXECUTES NEXT ASSERTION 
+    assertEquals(98.0, objectWithWorstMetric.get().getWeight());
+}
+```
+
+
+With `@AssertAll`:
+
+  ```java
+  @Test
+  void should_ReturnObjectWithWorstMetric_When_ObjectListNotEmpty() {
+    // given
+    List<SomeObject> objects = new ArrayList<>();
+    objects.add(new SomeObject(1.80, 60.0));
+    objects.add(new SomeObject(1.82, 98.0));
+    objects.add(new SomeObject(1.82, 64.7));
+
+    // when
+    Optional<SomeObject> objectWithWorstMetric = MetricCalculator.findObjectWithWorstMetric(objects);
+
+    // then
+    assertAll(
+            () -> assertTrue(objectWithWorstMetric.isPresent()),
+            () -> assertEquals(1.82, objectWithWorstMetric.get().getHeight()), // TEST FAILS HERE 
+            () -> assertEquals(98.0, objectWithWorstMetric.get().getWeight())  // STILL EXECUTES NEXT ASSERTION 
+    );
+  }
+
+  ```
