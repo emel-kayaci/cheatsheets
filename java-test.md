@@ -1,8 +1,8 @@
 # Java Test Cheatsheet
 
-## Unit Test
+# Unit Test
 
-### Test Type Annotations
+## Test Type Annotations
 <table>
    <tr>
       <th>Type</th>
@@ -145,18 +145,18 @@ void test(String input) {...}
         }
 ```
 
-### Clean Test Tips
+## Clean Test Tips
 
-#### Disabled 
+### Disabled 
 Instead of wrapping everything in comments use the `@Disabled` annotation. When applied at the class level, all test methods within that class are automatically disabled as well.
 
-#### Nested 
+### Nested 
 - To reduce complexity when the test class grows use `@Nested`. It groups multiple test methods inside multiple nested classes of a main(outer) test class. Each nested class can have its own `@BeforeEach` and `@AfterEach`.
 
-#### DisplayName 
+### DisplayName 
 - `@DisplayName` could be used at the class and method level. The key benefit is that it can provide information about the test methods that show up in reporting and can be easily understood by any non-technical user.
 
-#### AssertAll 
+### AssertAll 
 - Use `@AssertAll` when checking multiple assertions. In code with multiple assertions, the test stops when the first of these assertions fails.
 
 Without `@AssertAll`:
@@ -204,3 +204,48 @@ With `@AssertAll`:
   }
 
   ```
+
+## Mockito 
+
+### Annotations
+
+Annotation | Usage
+--- | --- 
+`@ExtendWith(MockitoExtension.class)` | Mandatory annotation that must be added at the beginning of the class to use annotations.
+`@Mock` | Marks a field as a mock object. Mockito will automatically create a mock instance of the annotated field when the test class is instantiated. 
+`@Spy` | Mockito will create a <b>partial mock</b> of the annotated field, allowing you to retain the original behavior of the object unless overridden.
+`@InjectMocks` | Injects mock or spy fields into the target object being tested. 
+`@Captor` | Captures arguments passed to mock objects during method calls. Useful for verifying the arguments passed to methods on mocked objects.
+
+### When & Verify
+
+```java
+@Test
+void should_ReturnDifferentValues_OnMultipleCalls() {
+    when(mockedService.someMethod())
+            .thenReturn("First call result")
+            .thenReturn("Second call result");
+
+    // Define expected results
+    String expectedFirstCall = "First call result";
+    String expectedSecondCall = "Second call result";
+
+    // Invoke the method under test
+    String actualFirst = testedObject.someMethod();
+    String actualSecond = testedObject.someMethod();
+
+    // Assert
+    assertAll(
+            () -> assertEquals(expectedFirstCall, actualFirst),
+            () -> assertEquals(expectedSecondCall, actualSecond)
+    );
+}
+```
+
+### Argument Matchers
+
+### Argument Captor
+
+### Spy
+
+### BDD Style
