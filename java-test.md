@@ -217,12 +217,21 @@ Annotation | Usage
 `@InjectMocks` | Injects mock or spy fields into the target object being tested. 
 `@Captor` | Captures arguments passed to mock objects during method calls. Useful for verifying the arguments passed to methods on mocked objects.
 
-### When & Verify
+### When & Do 
 
+Example | Use With | Additional Information
+--- | --- | ---
+`when(...).thenReturn(...)` | Mock | Configures the behavior of a mock object when a specific method is called with particular arguments.
+`when(...).thenThrow(...)` | Mock | Throw an exception when a specific method is called with particular arguments.
+`when(...).thenAnswer(...)` | Mock | Allows `custom behavior` to be defined for a mock object when a specific method is called with particular arguments.
+`doThrow(Exception.class).when(mockedService).someMethod()` | Void method or Spy | Cannot use `when` when throwing an exception with void methods or spies. Should use `doThrow` instead.
+`doReturn().when(spy).method()` | Spy | Equivalent of `when(mock.method()).thenReturn()` for spies.
+
+#### Multiple When
 ```java
 @Test
 void should_ReturnDifferentValues_OnMultipleCalls() {
-    when(mockedService.someMethod())
+    when(mockedObject.someMethod())
             .thenReturn("First call result")
             .thenReturn("Second call result");
 
@@ -242,10 +251,25 @@ void should_ReturnDifferentValues_OnMultipleCalls() {
 }
 ```
 
+### Verify 
+
+Example 
+--- | 
+`verify(...).methodCall(...)` 
+`verify(..., times(n)).methodCall(...)` 
+`verify(..., never()).methodCall(...)`
+`verify(..., atLeastOnce()).methodCall(...)`	
+`verify(..., atLeast(n)).methodCall(...)`
+`verify(..., atMost(n)).methodCall(...)`
+`verify(..., atMost(n)).methodCall(...)`
+`verifyNoMoreInteractions(mockedObject)`
+
 ### Argument Matchers
 
 ### Argument Captor
 
-### Spy
+### Spy (Partial Mock)
 
 ### BDD Style
+
+
