@@ -297,6 +297,31 @@ endsWith() | String Ends With
 
 ### Argument Captor
 
+- Allows us to capture an argument passed to a method to inspect it.
+  
+- Especially useful when we can’t access the argument outside of the method we’d like to test.
+
+1. Add ArgumentCaptor Field
+
+   ```java
+    @Captor
+    private ArgumentCaptor<Double> doubleCaptor;
+   ```
+
+2. Capture the Argument
+   
+   ```java
+   verify(mockObject, times(1)).methodCall(any(), captor.capture()); // method is called once
+   verify(mockObject, times(2)).methodCall(any(), captor.capture()); // method is called twice
+   ```
+   
+3. Inspect the Captured Value
+   
+   ```java
+   Double capturedArgument = captor.getValue(); // one value captured
+   List<Double> capturedArguments = captor.getAllValues(); // multiple values captured
+   ```
+
 ### Spy (Partial Mock)
 
 Spy partially mocks a real object, while a mock creates a full mock object. Spies retain original behavior unless overridden, mocks don't.
@@ -316,6 +341,7 @@ public void whenCreateMock_thenCreated() {
 ```
 
 A spy on the other hand will behave differently – it will call the real implementation of the add method and add the element to the underlying list:
+
 ```java
 @Test
 public void whenCreateSpy_thenCreate() {
