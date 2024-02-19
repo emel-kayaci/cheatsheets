@@ -266,6 +266,33 @@ Example
 
 ### Argument Matchers
 
+Used when we want to mock the behavior for any argument of the given type.
+
+- Cannot combine matchers with raw values, use eq or other additional matchers instead.
+
+- All parameters can be raw values if the method call does not contain a matcher.
+
+```java
+when(anyService.anyMethod(any(), 100)); // ERROR (raw and matcher value combined)
+when(anyService.anyMethod(any(), eq(100))); // CORRECT USAGE (both matcher)
+when(anyService.anyMethod(someObject, 100)); // CORRECT USAGE (both raw)
+```
+- Cannot use `any()` for primitive types. Use specialized versions of `any()` such as `anyDouble()`, `anyLong()` etc.
+
+- `anyString()` does not match null string, `any()` should be used if there is a case where a null value is tested
+
+#### Additional Matchers
+
+Matcher | Full Name 
+--- | --- 
+eq() | Equals
+gt() | Greater Than
+lt() | Less Than
+geq()	| Greater Than or Equals
+leq()	| Less Than or Equals
+startsWith() | String Starts With
+endsWith() | String Ends With
+
 ### Argument Captor
 
 ### Spy (Partial Mock)
