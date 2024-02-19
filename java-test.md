@@ -272,6 +272,8 @@ Used when we want to mock the behavior for any argument of the given type.
 
 - All parameters can be raw values if the method call does not contain a matcher.
 
+- Cannot use matchers as a return value. Return value must be exact.
+
 ```java
 when(anyService.anyMethod(any(), 100)); // ERROR (raw and matcher value combined)
 when(anyService.anyMethod(any(), eq(100))); // CORRECT USAGE (both matcher)
@@ -297,6 +299,41 @@ endsWith() | String Ends With
 
 ### Spy (Partial Mock)
 
+Spy partially mocks a real object, while a mock creates a full mock object. Spies retain original behavior unless overridden, mocks don't.
+
+For example, adding an element into the mocked list doesn’t add anything – it just calls the method with no other side-effect.
+
+```java
+@Test
+public void whenCreateMock_thenCreated() {
+    List mockedList = Mockito.mock(ArrayList.class);
+
+    mockedList.add("one");
+    Mockito.verify(mockedList).add("one");
+
+    assertEquals(0, mockedList.size()); // True
+}
+```
+
+A spy on the other hand will behave differently – it will call the real implementation of the add method and add the element to the underlying list:
+```java
+@Test
+public void whenCreateSpy_thenCreate() {
+    List spyList = Mockito.spy(new ArrayList());
+    spyList.add("one");
+    Mockito.verify(spyList).add("one");
+
+    assertEquals(1, spyList.size());
+}
+```
+
 ### BDD Style
 
+BDD (Behavior-Driven Development) style in Mockito emphasizes writing tests in a human-readable format that focuses on the behavior of the system, using methods like `given()` and `then()`.
 
+- This spelling is only an alias to the form we use in normal Mockito such as when and verify.
+  
+Mockito | BDD Mockito
+--- | --- 
+`when(mockObject.methodCall()).thenReturn(value);` | `given(mockObject.methodCall()).willReturn(value);`
+`verify(mockObject, times(1)).methodCall(argument1, argument2);` | `then(mockObject).should(times(1)).methodCall(argument1, argument2);`
