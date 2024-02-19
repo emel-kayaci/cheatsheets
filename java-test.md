@@ -230,24 +230,25 @@ Example | Use With | Additional Information
 #### Multiple When
 ```java
 @Test
-void should_ReturnDifferentValues_OnMultipleCalls() {
-    when(mockedObject.someMethod())
-            .thenReturn("First call result")
-            .thenReturn("Second call result");
+void should_CountAvailablePlaces_WhenCalledMultipleTimes() {
+  List<Room> roomList = Arrays.asList(
+          new Room("ABC1", 10),
+          new Room("DEF2", 30));
 
-    // Define expected results
-    String expectedFirstCall = "First call result";
-    String expectedSecondCall = "Second call result";
+  when(roomService.getAvailableRooms())
+          .thenReturn(roomList)
+          .thenReturn(Collections.emptyList());
 
-    // Invoke the method under test
-    String actualFirst = testedObject.someMethod();
-    String actualSecond = testedObject.someMethod();
+  int expectedFirstCall = 40;
+  int expectedSecondCall = 0;
 
-    // Assert
-    assertAll(
-            () -> assertEquals(expectedFirstCall, actualFirst),
-            () -> assertEquals(expectedSecondCall, actualSecond)
-    );
+  int actualFirst = bookingService.getAvailablePlaceCount();
+  int actualSecond = bookingService.getAvailablePlaceCount();
+
+  assertAll(
+          () -> assertEquals(expectedFirstCall, actualFirst),
+          () -> assertEquals(expectedSecondCall, actualSecond)
+  );
 }
 ```
 
